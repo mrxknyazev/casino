@@ -1,0 +1,11 @@
+{
+  "name": "casino",
+  "version": "1.0.0",
+  "description": "DataArt internal gamedev course",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "magmel48",
+  "license": "MIT"
+}
