@@ -1,18 +1,20 @@
 import Phaser from 'phaser';
-import { resolution } from '../config';
 
 export default class extends Phaser.State {
     preload() {
-        this.load.image('sky', 'assets/sky.jpg');
+        // TODO avoid using Webfonts from Google CDN
+        window.WebFontConfig = {
+            active: () => {},
+            google: {
+                families: ['Bahiana']
+            }
+        };
+
+        this.load.image('background', 'assets/casino_green.jpg');
+        this.load.script('webfont', '//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js');
     }
 
-    render() {
-        const { width, height } = resolution;
-        const background = this.add.sprite(0, 0, 'sky');
-
-        background.scale.setTo(
-            width / background.width,
-            height / background.height
-        );
+    create() {
+        this.state.start('Loading');
     }
 }
